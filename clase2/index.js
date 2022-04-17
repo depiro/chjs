@@ -24,13 +24,18 @@
 
 
 
-let numerito = prompt("ingrese un número");
+// let numerito = prompt("ingrese un número");
 
-if ((numerito === 100) || (numerito < 101)){
-    alert("el numero es igual a 100!");
-}else {
-    alert("rayos, el numero es mayor a 100!");
+// if ((numerito === 100) || (numerito < 101)){
+//     alert("el numero es igual a 100!");
+// }else {
+//     alert("rayos, el numero es mayor a 100!");
+// }
+
+// console.log("buen trabajo!");
+
+if ("CODER" == "HOUSE") {
+    console.log("ES CODER");
+}else{
+    console.log("ES HOUSE");
 }
-
-console.log("buen trabajo!");
-

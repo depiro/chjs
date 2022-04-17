@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../Personal Diego/cursos/Coderhouse JS"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "chjs"
+	}
+}
