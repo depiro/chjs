@@ -66,7 +66,7 @@ const getCard = (item) => {
                     <h5 class="card-title">${item.brand}</h5>
                     <p class="card-text">${item.model}</p> 
                     <p class="card-text">U$S ${item.price}</p> 
-                    <button onclick=agregarCarrito(${item.id}) class="btn btn-primary">Agregar al carrito</button>
+                    <button onclick=agregarCarrito(${item.id}) type="button" class="btn btn-primary">Agregar al carrito</button>
                 </div>
             </div>
         </div>
@@ -115,11 +115,79 @@ const agregarCarrito = (id) => {
 }
 cargarProductos(PRODUCTOS, contenedor, false);
 
-let brandGuitar = document.getElementById("brand-guitar");
-let modelGuitar = document.getElementById("model-guitar");
-let priceGuitar = document.getElementById("price-guitar");
+// let brandGuitar = document.getElementById("brand-guitar");
+// let modelGuitar = document.getElementById("model-guitar");
+// let priceGuitar = document.getElementById("price-guitar");
+
+// Prompt pide nombre de usuario al inicio
+// let usuario = prompt("¡Bienvenido! ¿Cuál es tu nombre?");
+// let welcome = document.getElementById("welcome");
+// welcome.innerHTML = `<h1 class="fw-light">¡Bienvenido, ${usuario}!</h1><br><p class="lead text-muted">Vendemos y compramos guitarras</p>`;
+
+//Guarda datos de la guitarra para la venta
+document.getElementById('formTask').addEventListener('submit',saveTask);
+
+function saveTask(e) { 
+    let brand = document.getElementById('brand').value;
+    let description = document.getElementById('description').value;
+    let price = document.getElementById('price').value;
+ 
+    const task = {
+        brand,
+        description,
+        price
+    };
+
+    if (localStorage.getItem('tasks') === null) {
+        let tasks = [];
+        tasks.unshift(task);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    } else {
+        let tasks = JSON.parse(localStorage.getItem('tasks'));
+        tasks.unshift(task);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+    
+    getTasks();
+    document.getElementById("formTask").reset();
+    e.preventDefault();
+}
+
+function deleteTask(brand){
+    let tasks = JSON.parse(localStorage.getItem(`tasks`));
+
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i].brand == brand) {
+            tasks.splice(i, 1);
+        }  
+    }
+    localStorage.setItem(`tasks`, JSON.stringify(tasks));
+    getTasks();
+}
 
 
-let usuario = prompt("¡Bienvenido! ¿Cuál es tu nombre?");
-let welcome = document.getElementById("welcome");
-welcome.innerHTML = `<h1 class="fw-light">¡Bienvenido, ${usuario}!</h1><br><p class="lead text-muted">Vendemos y compramos guitarras</p>`;
+function getTasks () {
+    let tasks = JSON.parse(localStorage.getItem('tasks'));
+    let tasksView  = document.getElementById('tasksxxx');
+    
+    tasksView.innerHTML = '';
+
+    for (let i = 0; i < tasks.length; i++) {
+        let brand = tasks[i].brand;
+        let description = tasks[i].description;
+        let price = tasks[i].price;
+        
+        tasksView.innerHTML += `<div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">${brand}</h5>
+                    <p class="card-text">${description}</p> 
+                    <p class="card-text">U$S ${price}</p> 
+                    <a onclick="deleteTask('${brand}')" class="btn btn-danger ml-5">Delete</a>
+                </div>
+            </div>
+        </div>`;
+    }
+}
+
+getTasks();
