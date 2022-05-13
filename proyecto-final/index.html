@@ -18,7 +18,6 @@
                 <div class="row">
                   <div class="col-sm-8 col-md-7 py-4">
                     <h4 class="text-white">Cart</h4>
-                    <!-- <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p> -->
                     <table class="table table-dark table-striped table-cart">
                         <thead>
                         <tr>
@@ -34,12 +33,6 @@
                     </table>
                   </div>
                   <div class="col-sm-4 offset-md-1 py-4">
-                    <!-- <h4 class="text-white">Contact</h4>
-                    <ul class="list-unstyled">
-                      <!-- <!-- <li><a href="#" class="text-white">Follow on Twitter</a></li> -->
-                      <!-- <li><a href="#" class="text-white">Like on Facebook</a></li> --> -->
-                      <li><a href="#" class="text-white">Email me</a></li>
-                    </ul> -->
                   </div>
                 </div>
               </div>
@@ -50,31 +43,24 @@
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                   <strong>Proyecto final Coderhouse</strong>
                 </a>
-                <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Cart
-                </button> -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Sale Guitar
                 </button>
 
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                  <span>View Cart</span>
-                </button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                     View Cart 
+                     <!-- <span class="badge bg-secondary">4</span> -->
+                  </button>
               </div>
             </div>
-          </header>
+        </header>
 
-
-          <main>
+        <main>
             <section class="py-5 text-center container">
               <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto" id="welcome">
                   <h1 class="fw-light">Diego Rodriguez Pinedo</h1>
-                  <p class="lead text-muted">Coderhouse - Comision 30360 <!-- - Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely. --></p>
-                  <!-- <p>
-                    <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-                  </p> -->
+                  <p class="lead text-muted">Coderhouse - Comision 30360 </p>
                 </div>
               </div>
             </section>
@@ -93,7 +79,7 @@
                     <div id="productos" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
                 </div>
             </div>
-          </main>
+        </main>
     </div>
 
     <!-- Modal -->
@@ -106,8 +92,6 @@
                 </div>
             
                 <div class="modal-body">
-                    
-
                     <form id="formTask">
                         <div class="mb-3">
                             <label for="brand" class="form-label">Marca</label>
@@ -120,19 +104,19 @@
                         <div class="mb-3">
                             <label for="price" class="form-label">Precio</label>
                             <input type="number" id="price" class="form-control"></input>
-                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="imageUrl" class="form-label">Imagen URL</label>
+                            <input type="text" id="imageUrl" class="form-control"></input>
+                        </div>
                         <button type="submit" class="btn btn-primary btn-block">Sale guitar!</button>
                     </form>
                 </div>
-
-                <!-- <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div> -->
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="./scrip.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>

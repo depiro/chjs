@@ -130,6 +130,10 @@ function saveGuitar(e) {
     let description = document.getElementById('description').value;
     let price = document.getElementById('price').value;
  
+// let brandGuitar = document.getElementById("brand-guitar");
+// let modelGuitar = document.getElementById("model-guitar");
+// let priceGuitar = document.getElementById("price-guitar");
+
     const task = {
         imageUrl,
         brand,
