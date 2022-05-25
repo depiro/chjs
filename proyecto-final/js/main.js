@@ -246,7 +246,7 @@ const actualizarCarrito = () => {
 }
 
 const contadorCarrito =  document.getElementById('contadorCarrito')
-contadorCarrito.innerText = JSON.parse(localStorage.getItem('carrito'))
+contadorCarrito.innerText = JSON.parse(localStorage.getItem('carrito').length)
 console.log("resultado:" + carrito.length);
 
 console.log("carrito:" + carrito.length);
