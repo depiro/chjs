@@ -61,7 +61,20 @@ setTimeout(()=> {
         <h2>Compra y venta de instrumentos</h2>
         <p class="fs-5 col-md-8">Diego Rodriguez Pinedo - Comision 30360  <br> <span class="text-muted small">Este proyecto trata sobre una compra venta de guitarras, en la columna izquierda se puede ver las guitarras en stock y en la columna derecha aparecen las qeu carga el usuario atraves del formulario "Vender".</span></p>
         `
-}, 1000)
+}, 500);
+
+setTimeout(()=> {
+    let nuevosInstrumentos =  document.getElementById('nuevosInstrumentos')
+        nuevosInstrumentos.innerHTML = `
+        <h2>Publicá tu guitarra</h2>
+        <p>Si estas buscando vender tu instrumento, podemos ayudarte, cargá tu instrumento aquí y nos comunicaremos.</p>
+        `
+    let stockInstrumentos =  document.getElementById('stockInstrumentos')
+        stockInstrumentos.innerHTML = `
+        <h2>Instrumentos en venta</h2>
+        <p>Aquí encontras nuestra selección de instrumentos vintage, únicos o interpretaciones modernas y finas de un clásico.</p>
+        `
+}, 3500);
 
 const getCard = (item) => {
     return (
@@ -100,23 +113,18 @@ const cargarProductos = (datos, nodo, Tabla) => {
         acumulador += Tabla ? getRow(el) : getCard(el);
     })
     nodo.innerHTML = acumulador;
-    
+
     // Valida si hay carrito guardado en LS
-    // let validarCarrito = localStorage.getItem("carrito");
-    // const carrito = validarCarrito === null? [] : JSON.parse(validarCarrito);  
+    let validarCarrito = localStorage.getItem("carrito");
+    if (validarCarrito === null){
+        const carrito = [];
+    }else{
+        const carrito = JSON.parse(validarCarrito);
+    }
 };
 
 
-// // Valida si hay carrito guardado en LS
- let validarCarrito = localStorage.getItem("carrito");
-// validarCarrito === null ? 'const carrito = []' : 'const carrito = JSON.parse(validarCarrito)'
-// const carrito = validarCarrito === null? [] : JSON.parse(validarCarrito)
 
-if (validarCarrito === null){
-    const carrito = [];
-}else{
-    const carrito = JSON.parse(validarCarrito);
-}
 
 
 //  Guarda en Local Storage 
@@ -172,10 +180,8 @@ function saveGuitar(e) {
         description,
         price
     };
-
-    // localStorage.getItem('tasks') === null) ? let tasks = [] tasks.unshift(task) localStorage.setItem('tasks', JSON.stringify(tasks)) : let tasks = JSON.parse(localStorage.getItem('tasks')); tasks.unshift(task); localStorage.setItem('tasks', JSON.stringify(tasks));
     
-    if (localStorage.getItem('stock') === null) {
+    if (localStorage.getItem('tasks') === null) {
         let tasks = [];
         tasks.unshift(task);
         localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -208,8 +214,8 @@ function deleteTask(brand){
 function getTasks () {
     let tasks = JSON.parse(localStorage.getItem('tasks'));
     let tasksView  = document.getElementById('publicarInstrumento');
-   
-        tasksView.innerHTML = '';
+
+    tasksView.innerHTML = '';
 
     for (let i = 0; i < tasks.length; i++) {
         let imageUrl = tasks[i].imageUrl;
@@ -233,4 +239,15 @@ function getTasks () {
 setTimeout(()=> {
     getTasks();
 }, 2500)
+
+
+const actualizarCarrito = () => {
+    carrito.forEach(prod => localStorage.setItem('carrito', JSON.stringify(carrito)))
+}
+
+const contadorCarrito =  document.getElementById('contadorCarrito')
+contadorCarrito.innerText = JSON.parse(localStorage.getItem('carrito'))
+console.log("resultado:" + carrito.length);
+
+console.log("carrito:" + carrito.length);
 

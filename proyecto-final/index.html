@@ -25,7 +25,6 @@
                         <strong class="m-2">Proyecto final Coderhouse</strong>
                         </a>
     
-                        
                         <ul class="navbar-nav me-auto mb-2 mb-md-0">
                             <li class="nav-item">
                             </li>
@@ -49,17 +48,17 @@
                           <table class="table table-dark table-striped table-cart table-striped-columns">
                               <thead>
                               <tr>
-                                  <th scope="col">id</th>
-                                  <th scope="col">Brand</th>
-                                  <th scope="col">Model</th>
-                                  <th scope="col">Price</th>
-                                  <th scope="col">Image</th>
+                                  <th scope="col">ID</th>
+                                  <th scope="col">Marca</th>
+                                  <th scope="col">Modelo</th>
+                                  <th scope="col">Precio</th>
+                                  <th scope="col">Imagen</th>
                               </tr>
                               </thead>
                               <tbody id="tablaCarrito">
                               </tbody>
                           </table>
-                          <button type="submit" class="btn btn-primary btn-block mr-5">Comprar carrito</button>
+                          <button type="submit" class="btn btn-primary btn-block mr-5" id="comprarCarrito">Comprar carrito</button>
                           <button type="submit" class="btn btn-secondary btn-block" id="vaciarCarrito">Vaciar carrito</button>
                         </div>
                         <div class="col-sm-4 offset-md-1 py-4">
@@ -75,17 +74,14 @@
           
                 <div class="row g-5">
                     <div class="col-md-6">
-                        <h2>Instrumentos en venta</h2>
-                        <p>Aquí encontras nuestra selección de instrumentos vintage, únicos o interpretaciones modernas y finas de un clásico.</p>
-                        
+                        <div id="stockInstrumentos"></div>
                         <div id="instrumentosStock" class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-2"></div>
-                </div>
+                    </div>
           
-                <div class="col-md-6">
-                    <h2>Publicá tu guitarra</h2>
-                    <p>Si estas buscando vender tu instrumento, podemos ayudarte, cargá tu instrumento aquí y nos comunicaremos.</p>
-                    
-                    <div id="publicarInstrumento" class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-2"></div>
+                    <div class="col-md-6" >
+                        <div id="nuevosInstrumentos"></div>
+                        <div id="publicarInstrumento" class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-2"></div>
+                    </div>
                 </div>
             </main>
             
