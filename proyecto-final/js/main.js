@@ -58,8 +58,8 @@ const PRODUCTOS = [
 setTimeout(()=> {
     let bienvenida =  document.getElementById('bienvenida')
         bienvenida.innerHTML = `
-        <h2>Compra y venta de instrumentos</h2>
-        <p class="fs-5 col-md-8">Diego Rodriguez Pinedo - Comision 30360  <br> <span class="text-muted small">Este proyecto trata sobre una compra venta de guitarras, en la columna izquierda se puede ver las guitarras en stock y en la columna derecha aparecen las qeu carga el usuario atraves del formulario "Vender".</span></p>
+        <h3>Proyecto final Coderhouse</h3>
+        <p class="fs-5 col-md-8">Diego Rodriguez Pinedo - Comision 30360  <br> <span class="text-muted small">Este proyecto trata sobre una compra venta de guitarras, en la columna izquierda se puede ver las guitarras en stock y en la columna derecha aparecen las que carga el usuario atraves del formulario "Vender".</span></p>
         `
 }, 500);
 
@@ -86,8 +86,8 @@ const getCard = (item) => {
                     <h5 class="card-title">${item.brand}</h5>
                     <p class="card-text">${item.model}</p> 
                     <p class="card-text">U$S ${item.price}</p> 
-                    <button onclick=agregarCarrito(${item.id}) type="button" class="btn btn-primary">Agregar al carrito</button>
-                </div>
+                    <button id="agregarCarrito" onclick="agregarCarrito(${item.id}); toastyAgregar();" type="button" class="btn btn-primary">Agregar al carrito</button>
+                    </div>
             </div>
         </div>
     `);
@@ -101,7 +101,7 @@ const getRow = (item) => {
             <td>${item.model}</td>
             <td>$${item.price}</td>
             <td><img style="width:30px" class="pic-table" src="${item.image}" alt="imagen"></td>
-            <td><button onclick=deleteTask(${item.id}) type="button" class="btn btn-sm btn-secondary">Borrar</button></td>
+            <td><button onclick="deleteTask(${item.id})" type="button" class="btn btn-sm btn-secondary">Borrar</button></td>
         </tr>`
     )
 }
@@ -230,7 +230,7 @@ function getTasks () {
                     <h5 class="card-title">${brand}</h5>
                     <p class="card-text">${description}</p> 
                     <p class="card-text">U$S ${price}</p> 
-                    <a onclick="deleteTask('${brand}')" class="btn btn-danger ml-5">Borrar</a>
+                    <a onclick="deleteTask('${brand}'); toastyBorrar();" class="btn btn-danger ml-5">Borrar</a>
                 </div>
             </div>
         </div>`;
@@ -241,13 +241,17 @@ setTimeout(()=> {
 }, 2500)
 
 
-const actualizarCarrito = () => {
-    carrito.forEach(prod => localStorage.setItem('carrito', JSON.stringify(carrito)))
-}
+// const actualizarCarrito = () => {
+//     carrito.forEach(prod => localStorage.setItem('carrito', JSON.stringify(carrito)))
+// }
 
 const contadorCarrito =  document.getElementById('contadorCarrito')
-contadorCarrito.innerText = JSON.parse(localStorage.getItem('carrito').length)
-console.log("resultado:" + carrito.length);
 
+// cart array
+let cart = JSON.parse(localStorage.getItem("carrito")) || [];
+contadorCarrito.innerText = cart.length
+
+console.log("carritoooo:" + cart.length);
+console.log("resultado:" + carrito.length);
 console.log("carrito:" + carrito.length);
 
