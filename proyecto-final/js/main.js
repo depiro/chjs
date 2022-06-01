@@ -76,6 +76,8 @@ setTimeout(()=> {
         `
 }, 3500);
 
+
+
 const getCard = (item) => {
     return (
         `
@@ -87,7 +89,7 @@ const getCard = (item) => {
                     <p class="card-text">${item.model}</p> 
                     <p class="card-text">U$S ${item.price}</p> 
                     <button id="agregarCarrito" onclick="agregarCarrito(${item.id}); toastyAgregar();" type="button" class="btn btn-primary">Agregar al carrito</button>
-                    </div>
+                </div>
             </div>
         </div>
     `);

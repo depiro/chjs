@@ -42,7 +42,7 @@ function deleteTask(brand){
     getTasks();
 }
 
-// Publica nueva guitarra a la venta
+// Publica nueva guitarra 
 function getTasks () {
     let tasks = JSON.parse(localStorage.getItem('tasks'));
     let tasksView  = document.getElementById('publicarInstrumento');
