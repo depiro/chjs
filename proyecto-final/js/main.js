@@ -1,52 +1,51 @@
 const contenedor = document.getElementById("instrumentosStock");
 const tablaCarrito = document.getElementById("tablaCarrito");
-const carrito = [];
-
+const carrito = []
 const PRODUCTOS = [
     {
-        id: 1,
-        brand: "Gibson",
+        id: 14,
+        brand: `Gibson`,
         model: `Marauder Custom 1976`,
         price: 15000,
         image: `https://www.springinstrumentos.com/images/productos/197/fotos/max_5660f07f95bdc9963ea788d2fe335ea4.jpg`
     },
     {
-        id: 2,
-        brand: "Gibson",
+        id: 13,
+        brand: `Gibson`, 
         model: `SG Standard '61 2020`,
         price: 5000,
         image: `https://www.springinstrumentos.com/images/productos/300/fotos/max_f56f524170abe6f61a23fad48a795fa3.jpg`
     },
     {
-        id: 3,
-        brand: "Gibson",
+        id: 12,
+        brand: `Gibson`,
         model: `BR-9 Lapsteel 1950`,
         price: 1190,
         image: `https://www.springinstrumentos.com/images/productos/264/fotos/max_5857148defba089eb722c9353a1e9fa6.jpg?v=1638555537`
     },
     {
-        id: 4,
+        id: 11,
         brand: `Fender`, 
         model: `Telecaster Custom Shop Relic '64 2009`, 
         price: 4490, 
         image: `https://www.springinstrumentos.com/images/productos/277/fotos/max_5518e1c8aa2630cd643832f5ccd8d2e7.jpg?v=1645023773`
     },
     {
-        id: 5,
+        id: 10,
         brand: `Fender`, 
         model: `Telecaster Custom Shop 2006 Ri 1963 Sea Foam`, 
         price: 3490, 
         image: `https://www.springinstrumentos.com/images/productos/307/fotos/max_0733e52d13dfd1702c0a24edafe28acc.jpg?v=1650563790`
     },
     {
-        id: 6,
+        id: 9,
         brand: `Fender`, 
         model: `Telecaster Custom Shop 2006 Ri 1963 Sea Foam`, 
         price: 3490, 
         image: `https://www.springinstrumentos.com/images/productos/304/fotos/max_a59ae22103c0234b6c547ef868cad0b5.jpg?v=1650473417`
     },
     {
-        id: 7,
+        id: 8,
         brand: `Fender`, 
         model: `Telecaster Custom Shop 2006 Ri 1963 Sea Foam`, 
         price: 3490, 
@@ -64,19 +63,17 @@ setTimeout(()=> {
 }, 500);
 
 setTimeout(()=> {
-    let nuevosInstrumentos =  document.getElementById('nuevosInstrumentos')
+    let nuevosInstrumentos = document.getElementById('nuevosInstrumentos')
         nuevosInstrumentos.innerHTML = `
         <h2>Publicá tu guitarra</h2>
         <p>Si estas buscando vender tu instrumento, podemos ayudarte, cargá tu instrumento aquí y nos comunicaremos.</p>
         `
-    let stockInstrumentos =  document.getElementById('stockInstrumentos')
+    let stockInstrumentos = document.getElementById('stockInstrumentos')
         stockInstrumentos.innerHTML = `
         <h2>Instrumentos en venta</h2>
         <p>Aquí encontras nuestra selección de instrumentos vintage, únicos o interpretaciones modernas y finas de un clásico.</p>
         `
 }, 3500);
-
-
 
 const getCard = (item) => {
     return (
@@ -134,7 +131,7 @@ const carritoStorage = () => {
     localStorage.setItem("carrito", JSON.stringify(carrito))
  }
 
-
+ //  Agrega a carrito
 const agregarCarrito = (id) => {
     const seleccion = PRODUCTOS.find(item => item.id === id);
     const busqueda = carrito.findIndex(el => el.id === id);
@@ -167,7 +164,7 @@ setTimeout(()=> {
 
 
 
-//Guarda datos de la guitarra para la venta
+//Guarda datos de la guitarra para la venta 
 document.getElementById('formTask').addEventListener('submit',saveGuitar);
 
 function saveGuitar(e) { 
@@ -256,4 +253,82 @@ contadorCarrito.innerText = cart.length
 console.log("carritoooo:" + cart.length);
 console.log("resultado:" + carrito.length);
 console.log("carrito:" + carrito.length);
+
+
+
+//fetch de json
+let items
+
+const lista = document.querySelector("#container");
+fetch(`data/api.json`)
+.then (response => response.json())
+// .then (datajson => console.log(datajson))
+
+.then((data) => {
+
+    //  Agrega a carrito
+// const agregarCarrito = (id) => {
+    // const seleccion = PRODUCTOS.find(item => item.id === id);
+    // const busqueda = carrito.findIndex(el => el.id === id);
+    
+
+    data.forEach((item) => {
+        const col = document.createElement("div");
+        col.innerHTML = `
+            <div class="card">
+                <img src="${item.image}" class="card-img-top" alt="${item.brand}">
+                <div class="card-body">
+                    <h5 class="card-title">${item.brand}</h5> 
+                    <p class="card-text">${item.model}</p> 
+                    <p class="card-text">U$S ${item.price}</p> 
+                    <button id="agregarCarrito" onclick="agregarCarrito(${item.id}); toastyAgregar();" type="button" class="btn btn-primary">Agregar al carrito</button>
+                </div>
+            </div>
+      `;
+        lista.append(col);
+    });
+  });
+
+
+
+//mercadopago
+// let productos 
+// const carrito = [
+//     {nombre: "Auricular", descripcionn: "otra cosa", img: "imagen", id: 1, cantidad: 2, precio: 100},
+//     {nombre: "Auricular", descripcion: "otra cosa", img: "imagen", id: 2, cantidad: 1, precio: 4400},
+//     {nombre: "Auricular", descripcion: "otra cosa", img: "imagen", id: 2, cantidad: 3, precio: 100},
+//     {nombre: "Auricular", descripcion: "otra cosa", img: "imagen", id: 2, cantidad: 4, precio: 100}]
+
+const pagar = async () => {
+
+    const productosToMap = carrito.map(item => {
+        let nuevoElemento = 
+        {
+            title: item.brand,
+            description: item.model,
+            picture_url: item.img,
+            category_id: item.id,   
+            quantity: item.cantidad,
+            currency_id: "ARS",
+            unit_price: item.price
+        }
+        return nuevoElemento
+    })
+    let response = await fetch("https://api.mercadopago.com/checkout/preferences", {
+
+        method: "POST",
+        headers: {
+            Authorization: "Bearer TEST-8010544934771252-060114-3fd5c26f83ed52d66b24164540e5d8ab-6941591"
+        },
+        body: JSON.stringify({
+            items: productosToMap
+        })
+    })
+    let data = await response.json()
+    console.log(data)
+    window.open(data.init_point, "_blank")
+}
+
+
+
 
