@@ -46,56 +46,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Bienvenido "hero"
-// setTimeout(()=> {
-//     let bienvenida =  document.getElementById('bienvenida')
-//         bienvenida.innerHTML = `
-//         <h3>Proyecto final Coderhouse</h3>
-//         <p class="fs-5 col-md-8">Diego Rodriguez Pinedo - Comision 30360  <br> <span class="text-muted small">Este proyecto trata sobre una compra venta de guitarras, en la columna izquierda se puede ver las guitarras en stock y en la columna derecha aparecen las que carga el usuario atraves del formulario "Vender".</span></p>
-//         `
-// }, 500);
-
-// setTimeout(()=> {
-//     let nuevosInstrumentos = document.getElementById('nuevosInstrumentos')
-//         nuevosInstrumentos.innerHTML = `
-//         <h2>Publicá tu guitarra</h2>
-//         <p>Si estas buscando vender tu instrumento, podemos ayudarte, cargá tu instrumento aquí y nos comunicaremos.</p>
-//         `
-//     let stockInstrumentos = document.getElementById('stockInstrumentos')
-//         stockInstrumentos.innerHTML = `
-//         <h2>Instrumentos en venta</h2>
-//         <p>Aquí encontras nuestra selección de instrumentos vintage, únicos o interpretaciones modernas y finas de un clásico.</p>
-//         `
-// }, 3500);
-
-const getCard = (item) => {
-    return (
+setTimeout(()=> {
+    let bienvenida =  document.getElementById('bienvenida')
+        bienvenida.innerHTML = `
+        <h3>Proyecto final Coderhouse</h3>
+        <p class="fs-5 col-md-8">Diego Rodriguez Pinedo - Comision 30360  <br> <span class="text-muted small">Este proyecto trata sobre una compra venta de guitarras, en la columna izquierda se puede ver las guitarras en stock y en la columna derecha aparecen las que carga el usuario atraves del formulario "Vender".</span></p>
         `
-        <div class="col">
-            <div class="card">
-                <img src="${item.image}" class="card-img-top" alt="${item.brand}">
-                <div class="card-body">
-                    <h5 class="card-title">${item.brand}</h5>
-                    <p class="card-text">${item.model}</p> 
-                    <p class="card-text">U$S ${item.price}</p> 
-                    <button id="agregarCarrito" onclick="agregarCarrito(${item.id}); toastyAgregar();" type="button" class="btn btn-primary">Agregar al carrito</button>
-                </div>
-            </div>
-        </div>
-    `);
-};
+}, 500);
 
-const getRow = (item) => {
-    return(
-        `<tr>
-            <th scope="row">${item.id}</th>
-            <td>${item.brand}</td>
-            <td>${item.model}</td>
-            <td>$${item.price}</td>
-            <td><img style="width:30px" class="pic-table" src="${item.image}" alt="imagen"></td>
-            <td><button onclick="deleteTask(${item.id})" type="button" class="btn btn-sm btn-secondary">Borrar</button></td>
-        </tr>`
-    )
-}
+setTimeout(()=> {
+    let nuevosInstrumentos = document.getElementById('nuevosInstrumentos')
+        nuevosInstrumentos.innerHTML = `
+        <h2>Publicá tu guitarra</h2>
+        <p>Si estas buscando vender tu instrumento, podemos ayudarte, cargá tu instrumento aquí y nos comunicaremos.</p>
+        `
+    let stockInstrumentos = document.getElementById('stockInstrumentos')
+        stockInstrumentos.innerHTML = `
+        <h2>Instrumentos en venta</h2>
+        <p>Aquí encontras nuestra selección de instrumentos vintage, únicos o interpretaciones modernas y finas de un clásico.</p>
+        `
+}, 3500);
+
+
+
+// const getCard = (item) => {
+//     return (
+//         `
+//         <div class="col">
+//             <div class="card">
+//                 <img src="${item.image}" class="card-img-top" alt="${item.brand}">
+//                 <div class="card-body">
+//                     <h5 class="card-title">${item.brand}</h5>
+//                     <p class="card-text">${item.model}</p> 
+//                     <p class="card-text">U$S ${item.price}</p> 
+//                     <button id="agregarCarrito" onclick="agregarCarrito(${item.id}); toastyAgregar();" type="button" class="btn btn-primary">Agregar al carrito</button>
+//                 </div>
+//             </div>
+//         </div>
+//     `);
+// };
+
+// const getRow = (item) => {
+//     return(
+//         `<tr>
+//             <th scope="row">${item.id}</th>
+//             <td>${item.brand}</td>
+//             <td>${item.model}</td>
+//             <td>$${item.price}</td>
+//             <td><img style="width:30px" class="pic-table" src="${item.image}" alt="imagen"></td>
+//             <td><button onclick="deleteTask(${item.id})" type="button" class="btn btn-sm btn-secondary">Borrar</button></td>
+//         </tr>`
+//     )
+// }
 
 // // carrito
 // const cargarProductos = (datos, nodo, Tabla) => {
@@ -160,81 +162,81 @@ const getRow = (item) => {
 
 
 //Guarda datos de la guitarra para la venta 
-// document.getElementById('formTask').addEventListener('submit',saveGuitar);
+document.getElementById('formTask').addEventListener('submit',saveGuitar);
 
-// function saveGuitar(e) { 
-//     let imageUrl = document.getElementById('imageUrl').value;
-//     let brand = document.getElementById('brand').value;
-//     let description = document.getElementById('description').value;
-//     let price = document.getElementById('price').value;
-//     let id = document.getElementById('id').value;
+function saveGuitar(e) { 
+    let imageUrl = document.getElementById('imageUrl').value;
+    let brand = document.getElementById('brand').value;
+    let description = document.getElementById('description').value;
+    let price = document.getElementById('price').value;
+    let id = document.getElementById('id').value;
  
-//     const task = {
-//         imageUrl,
-//         brand,
-//         description,
-//         price, 
-//         id,
-//     };
+    const task = {
+        imageUrl,
+        brand,
+        description,
+        price, 
+        id,
+    };
     
-//     if (localStorage.getItem('tasks') === null) {
-//         let tasks = [];
-//         tasks.unshift(task);
-//         localStorage.setItem('tasks', JSON.stringify(tasks));
-//     } else {
-//         let tasks = JSON.parse(localStorage.getItem('tasks'));
-//         tasks.unshift(task);
-//         localStorage.setItem('tasks', JSON.stringify(tasks));
-//     }
+    if (localStorage.getItem('tasks') === null) {
+        let tasks = [];
+        tasks.unshift(task);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    } else {
+        let tasks = JSON.parse(localStorage.getItem('tasks'));
+        tasks.unshift(task);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
     
-//     getTasks();
-//     document.getElementById("formTask").reset();
-//     e.preventDefault();
-// }
+    getTasks();
+    document.getElementById("formTask").reset();
+    e.preventDefault();
+}
 
-// // Borrar guitarra publicada
-// function deleteTask(brand){
-//     let tasks = JSON.parse(localStorage.getItem(`tasks`));
+// Borrar guitarra publicada
+function deleteTask(brand){
+    let tasks = JSON.parse(localStorage.getItem(`tasks`));
 
-//     for (let i = 0; i < tasks.length; i++) {
-//         if (tasks[i].brand == brand) {
-//             tasks.splice(i, 1);
-//         }  
-//     }
-//     localStorage.setItem(`tasks`, JSON.stringify(tasks));
-//     getTasks();
-// }
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i].brand == brand) {
+            tasks.splice(i, 1);
+        }  
+    }
+    localStorage.setItem(`tasks`, JSON.stringify(tasks));
+    getTasks();
+}
 
 
-// // Publica nueva guitarra a la venta
-// function getTasks () {
-//     let tasks = JSON.parse(localStorage.getItem('tasks'));
-//     let tasksView  = document.getElementById('publicarInstrumento');
+// Publica nueva guitarra a la venta
+function getTasks () {
+    let tasks = JSON.parse(localStorage.getItem('tasks'));
+    let tasksView  = document.getElementById('publicarInstrumento');
 
-//     tasksView.innerHTML = '';
+    tasksView.innerHTML = '';
 
-//     for (let i = 0; i < tasks.length; i++) {
-//         let imageUrl = tasks[i].imageUrl;
-//         let brand = tasks[i].brand;
-//         let description = tasks[i].description;
-//         let price = tasks[i].price;
+    for (let i = 0; i < tasks.length; i++) {
+        let imageUrl = tasks[i].imageUrl;
+        let brand = tasks[i].brand;
+        let description = tasks[i].description;
+        let price = tasks[i].price;
         
-//         tasksView.innerHTML += `<div class="col">
-//             <div class="card">
-//                 <img src="${imageUrl}" class="card-img-top" alt="${imageUrl}">
-//                 <div class="card-body">
-//                     <h5 class="card-title">${brand}</h5>
-//                     <p class="card-text">${description}</p> 
-//                     <p class="card-text">U$S ${price}</p> 
-//                     <a onclick="deleteTask('${brand}'); toastyBorrar();" class="btn btn-danger ml-5">Borrar</a>
-//                 </div>
-//             </div>
-//         </div>`;
-//     }
-// }
-// setTimeout(()=> {
-//     getTasks();
-// }, 2500)
+        tasksView.innerHTML += `<div class="col">
+            <div class="card">
+                <img src="${imageUrl}" class="card-img-top" alt="${imageUrl}">
+                <div class="card-body">
+                    <h5 class="card-title">${brand}</h5>
+                    <p class="card-text">${description}</p> 
+                    <p class="card-text">U$S ${price}</p> 
+                    <a onclick="deleteTask('${brand}'); toastyBorrar();" class="btn btn-danger ml-5">Borrar</a>
+                </div>
+            </div>
+        </div>`;
+    }
+}
+setTimeout(()=> {
+    getTasks();
+}, 2500)
 
 
 // // const actualizarCarrito = () => {
@@ -290,24 +292,6 @@ const productos = fetch(`data/api.json`) .then (response => response.json())
         const agregarItem = baseProductos.find((item) => item.id === id);
         carrito.push(agregarItem);
         actualizarCarrito();
-        //     const busqueda = carrito.findIndex(el => el.id === id);
-        // console.log(carrito)
-
-        // const busqueda = carrito.findIndex(el => el.id === id);
-
-        // if (busqueda === -1) {
-        //     carrito.push({
-        //         id: seleccion.id,
-        //         brand: seleccion.brand,
-        //         model: seleccion.model,
-        //         price: seleccion.price,
-        //         image: seleccion.image
-        //     })
-        //     console.log(carrito);
-        // } else {
-        //     carrito[busqueda].amount = carrito[busqueda].amount + 1
-        //     console.log( carrito);
-        // }
     }
     console.log(carrito);
 })
@@ -327,12 +311,6 @@ botonVaciarCarrito.addEventListener ('click', () => {
     actualizarCarrito()
 })
 
-// Contador carrito
-//const contadorCarrito = document.getElementById('contadorCarrito')
-
-
-
-
 
 
 
@@ -341,7 +319,8 @@ const actualizarCarrito = () => {
     
     carrito.forEach((item) => {
         // const col = document.createElement("div");
-        const trTable = document.getElementById("tablaCarrito");
+        // const trTable = document.getElementById("tablaCarrito");
+        const trTable = document.createElement("tr");
         trTable.classList.add("productoEnCarrito")
         trTable.innerHTML = `
             <tr>
@@ -354,11 +333,10 @@ const actualizarCarrito = () => {
             </tr>
         `
         // tablaCarrito.append(item)
-        tablaCarrito.append()
+        tablaCarrito.append(trTable) 
         // tablaCarrito.push()
 
         localStorage.setItem('carrito', JSON.stringify(carrito))
-
 
 //     // Valida si hay carrito guardado en LS
 //     let validarCarrito = localStorage.getItem("carrito");
@@ -370,29 +348,6 @@ const actualizarCarrito = () => {
     });
     contadorCarrito.innerText = carrito.length
 }
-
-
-
-// carrito
-// const cargarProductos = (datos, nodo, Tabla) => {
-//     let acumulador = "";
-//     datos.forEach((el) => {
-//         acumulador += Tabla ? getRow(el) : getCard(el);
-//     })
-//     nodo.innerHTML = acumulador;
-
-//     // Valida si hay carrito guardado en LS
-//     let validarCarrito = localStorage.getItem("carrito");
-//     if (validarCarrito === null){
-//         const carrito = [];
-//     }else{
-//         const carrito = JSON.parse(validarCarrito);
-//     }
-// };
-
-
-
-
 
 
 // FETCH A MERCADOPAGO
