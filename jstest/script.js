@@ -287,25 +287,26 @@ const productos = fetch(`data/api.json`) .then (response => response.json())
     const agregarCarrito = (id) => {
         const agregarItem = baseProductos.find((item) => item.id === id);
         carrito.push(agregarItem);
-        actualizarCarrito();
+        
         //     const busqueda = carrito.findIndex(el => el.id === id);
         // console.log(carrito)
 
-        // const busqueda = carrito.findIndex(el => el.id === id);
+        const busqueda = carrito.findIndex(el => el.id === id);
 
-        // if (busqueda === -1) {
-        //     carrito.push({
-        //         id: seleccion.id,
-        //         brand: seleccion.brand,
-        //         model: seleccion.model,
-        //         price: seleccion.price,
-        //         image: seleccion.image
-        //     })
-        //     console.log(carrito);
-        // } else {
-        //     carrito[busqueda].amount = carrito[busqueda].amount + 1
-        //     console.log( carrito);
-        // }
+        if (busqueda === -1) {
+            carrito.push({
+                id: seleccion.id,
+                brand: seleccion.brand,
+                model: seleccion.model,
+                price: seleccion.price,
+                image: seleccion.image
+            })
+            console.log(carrito);
+        } else {
+            carrito[busqueda].amount = carrito[busqueda].amount + 1
+            console.log( carrito);
+        }
+        actualizarCarrito();
     }
     console.log(carrito);
 })
@@ -335,25 +336,22 @@ botonVaciarCarrito.addEventListener ('click', () => {
 
 
 const actualizarCarrito = () => {
-    // tablaCarrito.innerHTML = ""
-    
+    tablaCarrito.innerHTML = ""
+
     carrito.forEach((item) => {
-        // const col = document.createElement("div");
         const trTable = document.getElementById("tablaCarrito");
-        trTable.classList.add("productoEnCarrito")
+        // div.classList.add("productoEnCarrito")
         trTable.innerHTML = `
-            <tr>
-                <th scope="row">${item.id}</th>
-                <td>${item.brand}</td>
-                <td>${item.model}</td>
-                <td>${item.price}</td>
-                <td><img style="width:30px" class="pic-table" src="${item.image}" alt="imagen"></td>
-                <td><button onclick="eliminarDelCarro(${item.id}), toastyBorrar()" type="button" class="btn btn-sm btn-secondary">Borrar</button></td>
-            </tr>
+        <td>
+            <th >${item.id}</th>
+            <tr>${item.brand}</tr>
+            <tr>${item.model}</tr>
+            <tr>${item.price}</tr>
+            <tr><img style="width:30px" class="pic-table" src="${item.image}" alt="imagen"></tr>
+            <tr><button onclick="eliminarDelCarro(${item.id}), toastyBorrar()" type="button" class="btn btn-sm btn-secondary">Borrar</button></tr>
+        </td>
         `
-        // tablaCarrito.append(item)
         tablaCarrito.append()
-        // tablaCarrito.push()
 
         localStorage.setItem('carrito', JSON.stringify(carrito))
 

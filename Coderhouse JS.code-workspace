@@ -8,6 +8,9 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "chjs"
+		"liveServer.settings.multiRootWorkspaceName": "chjs",
+		"editor.fontFamily": "Fira Code",
+		"editor.fontLigatures": true,
+		"editor.fontWeight": "normal"
 	}
 }

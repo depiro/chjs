@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "brand": "Gibson",
+        "model": "Marauder Custom 1976",
+        "price": 15000,
+        "image": "https://www.springinstrumentos.com/images/productos/197/fotos/max_5660f07f95bdc9963ea788d2fe335ea4.jpg"
+    },
+    {
+        "id": 2,
+        "brand": "Gibson",
+        "model": "SG Standard '61 2020",
+        "price": 5000,
+        "image": "https://www.springinstrumentos.com/images/productos/300/fotos/max_f56f524170abe6f61a23fad48a795fa3.jpg"
+    },
+    {
+        "id": 3,
+        "brand": "Gibson",
+        "model": "BR-9 Lapsteel 1950",
+        "price": 1190,
+        "image": "https://www.springinstrumentos.com/images/productos/264/fotos/max_5857148defba089eb722c9353a1e9fa6.jpg?v=1638555537"
+    },
+    {
+        "id": 4,
+        "brand": "Fender", 
+        "model": "Telecaster Custom Shop Relic '64 2009", 
+        "price": 4490, 
+        "image": "https://www.springinstrumentos.com/images/productos/277/fotos/max_5518e1c8aa2630cd643832f5ccd8d2e7.jpg?v=1645023773"
+    },
+    {
+        "id": 5,
+        "brand": "Fender", 
+        "model": "Telecaster Custom Shop 2006 Ri 1963 Sea Foam", 
+        "price": 3490, 
+        "image": "https://www.springinstrumentos.com/images/productos/307/fotos/max_0733e52d13dfd1702c0a24edafe28acc.jpg?v=1650563790"
+    },
+    {
+        "id": 6,
+        "brand": "Fender", 
+        "model": "Telecaster Custom Shop 2006 Ri 1963 Sea Foam", 
+        "price": 3490, 
+        "image": "https://www.springinstrumentos.com/images/productos/304/fotos/max_a59ae22103c0234b6c547ef868cad0b5.jpg?v=1650473417"
+    },
+    {
+        "id": 7,
+        "brand": "Fender", 
+        "model": "Telecaster Custom Shop 2006 Ri 1963 Sea Foam", 
+        "price": 3490, 
+        "image": "https://www.springinstrumentos.com/images/productos/178/fotos/max_ad065a3537874b099c6dffc9bc3dbdad.jpg?v=1620185534"
+    }
+]

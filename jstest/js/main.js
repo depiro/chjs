@@ -335,7 +335,7 @@ botonVaciarCarrito.addEventListener ('click', () => {
 
 
 const actualizarCarrito = () => {
-    // tablaCarrito.innerHTML = ""
+    tablaCarrito.innerHTML = ""
     
     carrito.forEach((item) => {
         // const col = document.createElement("div");
@@ -351,9 +351,7 @@ const actualizarCarrito = () => {
                 <td><button onclick="eliminarDelCarro(${item.id}), toastyBorrar()" type="button" class="btn btn-sm btn-secondary">Borrar</button></td>
             </tr>
         `
-        // tablaCarrito.append(item)
         tablaCarrito.append()
-        // tablaCarrito.push()
 
         localStorage.setItem('carrito', JSON.stringify(carrito))
 
