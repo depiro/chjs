@@ -37,11 +37,6 @@ function saveGuitar(e) {
     e.preventDefault();
 }
 
-
-
-
-
-
 // Publica nueva guitarra a la venta
 function getTasks () {
     let tasksGuitars = JSON.parse(localStorage.getItem('tasksGuitars'));
@@ -69,7 +64,6 @@ function getTasks () {
         </div>`;
         // console.log(tasksGuitars.length);
     }
-    
 }
 setTimeout(()=> {
     getTasks();
@@ -84,14 +78,6 @@ function deleteTask(id){
     
     let guitarIndex = tasksGuitars.indexOf(guitarFilter.id)
         tasksGuitars.splice(guitarIndex, 1);
-    
-
-
-    // for (let i = 0; i < tasksGuitars.length; i++) {
-    //     if (tasksGuitars[i].brand == brand) {
-    //         tasksGuitars.splice(i, 1);
-    //     }  
-    // }
 
     localStorage.setItem(`tasksGuitars`, JSON.stringify(tasksGuitars));
     getTasks();

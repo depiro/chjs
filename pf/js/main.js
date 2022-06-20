@@ -69,7 +69,7 @@ const actualizarCarrito = () => {
                 <td>${item.model}</td>
                 <td>$ ${item.price}</td>
                 <td><img style="width:30px" class="pic-table" src="${item.image}" alt="imagen"></td>
-                <td><button onclick="eliminarDelCarro(${item.id}), toastyBorrar()" type="button" class="btn btn-sm btn-secondary">Borrar</button></td>
+                <td><button onclick="eliminarDelCarro(${item.id}), toastyLimpiItemCarrito()" type="button" class="btn btn-sm btn-secondary">Borrar</button></td>
             </tr>
         `
         tablaCarrito.appendChild(trTable) 
@@ -79,22 +79,9 @@ const actualizarCarrito = () => {
 }
 
 // Botón vaciar carrito
-// botonVaciarCarrito.addEventListener ('click', () => {
-//     limpiarCarrito()
-//     localStorage.clear();
-//     actualizarCarrito()
-// })
-
-// function limpiarCarrito() {
-//     while (tablaCarrito.firstChild) {
-//         tablaCarrito.removeChild(tablaCarrito.firstChild)
-//     }
-// }
-
-// Botón vaciar carrito
 botonVaciarCarrito.addEventListener ('click', () => {
     carrito.length = 0
-
+    toastyLimpiCarrito()
     actualizarCarrito()
 })
 
@@ -128,4 +115,3 @@ const pagar = async () => {
     console.log(data)
     window.open(data.init_point, "_blank")
 }
-
