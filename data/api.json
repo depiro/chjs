@@ -1,51 +1,72 @@
 [
     {
         "id": 1,
-        "brand": "Gibson",
-        "model": "Marauder Custom 1976",
-        "price": 15000,
-        "image": "https://www.springinstrumentos.com/images/productos/197/fotos/max_5660f07f95bdc9963ea788d2fe335ea4.jpg"
+        "brand": "Yamaha", 
+        "model": "Yamaha SGC-2 Orange 1968, fabricada en Japón en el año 1968, mas conocidas como la 'Flying Samurai' y diseñada por Takeshi Terauchi.", 
+        "price": 1999, 
+        "image": "https://www.springinstrumentos.com/images/productos/316/fotos/med_59dbb2a0fe6208ae44bf250b745baa47.jpg"
     },
     {
         "id": 2,
-        "brand": "Gibson",
-        "model": "SG Standard '61 2020",
-        "price": 5000,
-        "image": "https://www.springinstrumentos.com/images/productos/300/fotos/max_f56f524170abe6f61a23fad48a795fa3.jpg"
+        "brand": "Teye",
+        "model": "Teye Super Coyote, fabricada en Nashville, TE. en el año 2015.",
+        "price": 4490,
+        "image": "https://www.springinstrumentos.com/images/productos/324/fotos/max_bd9afa305a77996bcc4705f7dfab00b9.jpg"
     },
     {
         "id": 3,
-        "brand": "Gibson",
-        "model": "BR-9 Lapsteel 1950",
-        "price": 1190,
-        "image": "https://www.springinstrumentos.com/images/productos/264/fotos/max_5857148defba089eb722c9353a1e9fa6.jpg?v=1638555537"
+        "brand": "Dobro Regal",
+        "model": "Resonador Regal RC-1 de mediados de los 90's en excelente estado, con un acabado gun-metal-grey de estilo 'vintage' único.",
+        "price": 1490,
+        "image": "https://www.springinstrumentos.com/images/productos/243/fotos/max_73c0b1c12e6ee3417dafae2a14d92eb5.jpg"
     },
     {
         "id": 4,
         "brand": "Fender", 
         "model": "Telecaster Custom Shop Relic '64 2009", 
         "price": 4490, 
-        "image": "https://www.springinstrumentos.com/images/productos/277/fotos/max_5518e1c8aa2630cd643832f5ccd8d2e7.jpg?v=1645023773"
+        "image": "https://www.springinstrumentos.com/images/productos/277/fotos/max_5518e1c8aa2630cd643832f5ccd8d2e7.jpg"
     },
     {
         "id": 5,
         "brand": "Fender", 
         "model": "Telecaster Custom Shop 2006 Ri 1963 Sea Foam", 
         "price": 3490, 
-        "image": "https://www.springinstrumentos.com/images/productos/307/fotos/max_0733e52d13dfd1702c0a24edafe28acc.jpg?v=1650563790"
+        "image": "https://www.springinstrumentos.com/images/productos/307/fotos/max_0733e52d13dfd1702c0a24edafe28acc.jpg"
     },
     {
         "id": 6,
         "brand": "Fender", 
         "model": "Telecaster Custom Shop 2006 Ri 1963 Sea Foam", 
         "price": 3490, 
-        "image": "https://www.springinstrumentos.com/images/productos/304/fotos/max_a59ae22103c0234b6c547ef868cad0b5.jpg?v=1650473417"
+        "image": "https://www.springinstrumentos.com/images/productos/304/fotos/max_a59ae22103c0234b6c547ef868cad0b5.jpg"
     },
     {
         "id": 7,
-        "brand": "Fender", 
-        "model": "Telecaster Custom Shop 2006 Ri 1963 Sea Foam", 
-        "price": 3490, 
-        "image": "https://www.springinstrumentos.com/images/productos/178/fotos/max_ad065a3537874b099c6dffc9bc3dbdad.jpg?v=1620185534"
-    }
+        "brand": "Gibson",
+        "model": "Marauder Custom 1976",
+        "price": 15000,
+        "image": "https://www.springinstrumentos.com/images/productos/197/fotos/max_5660f07f95bdc9963ea788d2fe335ea4.jpg"
+    },
+{
+        "id": 8,
+        "brand": "Gibson",
+        "model": "SG Standard '61 2020",
+        "price": 5000,
+        "image": "https://www.springinstrumentos.com/images/productos/300/fotos/max_f56f524170abe6f61a23fad48a795fa3.jpg"
+    },
+    {
+        "id": 9,
+        "brand": "Gibson",
+        "model": "BR-9 Lapsteel 1950.",
+        "price": 1190,
+        "image": "https://www.springinstrumentos.com/images/productos/264/fotos/max_5857148defba089eb722c9353a1e9fa6.jpg"
+    },
+    {
+        "id": 10,
+        "brand": "Fender",
+        "model": "Fender Telecaster Custom Shop 2006 Ri 1963 Sea Foam.",
+        "price": 4490,
+        "image": "https://www.springinstrumentos.com/images/productos/178/fotos/med_ad065a3537874b099c6dffc9bc3dbdad.jpg"
+    }    
 ]
