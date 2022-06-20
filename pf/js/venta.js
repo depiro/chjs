@@ -1,4 +1,4 @@
-//Guarda datos de la guitarra para la venta
+//Guarda datos de la guitarra para la venta 
 document.getElementById('formTask').addEventListener('submit',saveGuitar);
 
 function saveGuitar(e) { 
@@ -7,21 +7,21 @@ function saveGuitar(e) {
     let description = document.getElementById('description').value;
     let price = document.getElementById('price').value;
  
-    const task = {
+    const tasksGuitar = {
         imageUrl,
         brand,
         description,
-        price
+        price,
     };
-
-    if (localStorage.getItem('tasks') === null) {
-        let tasks = [];
-        tasks.unshift(task);
-        localStorage.setItem('tasks', JSON.stringify(tasks));
+    
+    if (localStorage.getItem('tasksGuitars') === null) {
+        let tasksGuitars = [];
+        tasksGuitars.unshift(tasksGuitar);
+        localStorage.setItem('tasksGuitars', JSON.stringify(tasksGuitars));
     } else {
-        let tasks = JSON.parse(localStorage.getItem('tasks'));
-        tasks.unshift(task);
-        localStorage.setItem('tasks', JSON.stringify(tasks));
+        let tasksGuitars = JSON.parse(localStorage.getItem('tasksGuitars'));
+        tasksGuitars.unshift(tasksGuitar);
+        localStorage.setItem('tasksGuitars', JSON.stringify(tasksGuitars));
     }
     
     getTasks();
@@ -29,44 +29,48 @@ function saveGuitar(e) {
     e.preventDefault();
 }
 
-// Borrar guitarra publicada
-function deleteTask(brand){
-    let tasks = JSON.parse(localStorage.getItem(`tasks`));
-
-    for (let i = 0; i < tasks.length; i++) {
-        if (tasks[i].brand == brand) {
-            tasks.splice(i, 1);
-        }  
-    }
-    localStorage.setItem(`tasks`, JSON.stringify(tasks));
-    getTasks();
-}
-
-// Publica nueva guitarra 
+// Publica nueva guitarra a la venta
 function getTasks () {
-    let tasks = JSON.parse(localStorage.getItem('tasks'));
+    let tasksGuitars = JSON.parse(localStorage.getItem('tasksGuitars'));
     let tasksView  = document.getElementById('publicarInstrumento');
-    
+
     tasksView.innerHTML = '';
 
-    for (let i = 0; i < tasks.length; i++) {
-        let imageUrl = tasks[i].imageUrl;
-        let brand = tasks[i].brand;
-        let description = tasks[i].description;
-        let price = tasks[i].price;
+    for (let i = 0; i < tasksGuitars.length; i++) {
+        let imageUrl = tasksGuitars[i].imageUrl;
+        let brand = tasksGuitars[i].brand;
+        let description = tasksGuitars[i].description;
+        let price = tasksGuitars[i].price;
         
-        tasksView.innerHTML += `<div class="col">
+        tasksView.innerHTML += `
+        <div class="col">
             <div class="card">
                 <img src="${imageUrl}" class="card-img-top" alt="${imageUrl}">
                 <div class="card-body">
                     <h5 class="card-title">${brand}</h5>
                     <p class="card-text">${description}</p> 
                     <p class="card-text">U$S ${price}</p> 
-                    <a onclick="deleteTask('${brand}')" class="btn btn-danger ml-5">Delete</a>
+                    <a onclick="deleteTask('${brand}'); toastyBorrar();" class="btn btn-danger ml-5">Borrar</a>
                 </div>
             </div>
         </div>`;
+        console.log(tasksView.length);
     }
+    
 }
+setTimeout(()=> {
+    getTasks();
+}, 1500)
 
-getTasks();
+// Borrar guitarra publicada
+function deleteTask(brand){
+    let tasksGuitars = JSON.parse(localStorage.getItem(`tasksGuitars`));
+
+    for (let i = 0; i < tasksGuitars.length; i++) {
+        if (tasksGuitars[i].brand == brand) {
+            tasksGuitars.splice(i, 1);
+        }  
+    }
+    localStorage.setItem(`tasksGuitars`, JSON.stringify(tasksGuitars));
+    getTasks();
+}
