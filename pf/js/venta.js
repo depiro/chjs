@@ -6,12 +6,20 @@ function saveGuitar(e) {
     let brand = document.getElementById('brand').value;
     let description = document.getElementById('description').value;
     let price = document.getElementById('price').value;
- 
+    let id;
+
+    if (JSON.parse(localStorage.getItem('tasksGuitars')) == null )  {
+        id = 1
+    }else {
+        id = JSON.parse(localStorage.getItem('tasksGuitars')).length;
+    }
+
     const tasksGuitar = {
         imageUrl,
         brand,
         description,
         price,
+        id,
     };
     
     if (localStorage.getItem('tasksGuitars') === null) {
@@ -29,6 +37,11 @@ function saveGuitar(e) {
     e.preventDefault();
 }
 
+
+
+
+
+
 // Publica nueva guitarra a la venta
 function getTasks () {
     let tasksGuitars = JSON.parse(localStorage.getItem('tasksGuitars'));
@@ -43,7 +56,7 @@ function getTasks () {
         let price = tasksGuitars[i].price;
         
         tasksView.innerHTML += `
-        <div class="col">
+        <div class="col" id="xxx">
             <div class="card">
                 <img src="${imageUrl}" class="card-img-top" alt="${imageUrl}">
                 <div class="card-body">
@@ -54,7 +67,7 @@ function getTasks () {
                 </div>
             </div>
         </div>`;
-        console.log(tasksView.length);
+        // console.log(tasksGuitars.length);
     }
     
 }
@@ -63,14 +76,23 @@ setTimeout(()=> {
 }, 1500)
 
 // Borrar guitarra publicada
-function deleteTask(brand){
+function deleteTask(id){
     let tasksGuitars = JSON.parse(localStorage.getItem(`tasksGuitars`));
+    let guitarFilter = tasksGuitars.filter ((guitar) => {
+        return guitar.id === id 
+    })
+    
+    let guitarIndex = tasksGuitars.indexOf(guitarFilter.id)
+        tasksGuitars.splice(guitarIndex, 1);
+    
 
-    for (let i = 0; i < tasksGuitars.length; i++) {
-        if (tasksGuitars[i].brand == brand) {
-            tasksGuitars.splice(i, 1);
-        }  
-    }
+
+    // for (let i = 0; i < tasksGuitars.length; i++) {
+    //     if (tasksGuitars[i].brand == brand) {
+    //         tasksGuitars.splice(i, 1);
+    //     }  
+    // }
+
     localStorage.setItem(`tasksGuitars`, JSON.stringify(tasksGuitars));
     getTasks();
 }
