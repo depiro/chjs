@@ -10,4 +10,4 @@ Este proyecto fue construido con JS, HTML, CSS, Bootstrap y Toastify.
 
 Proyecto inspirado en <a href="http://springinstrumentos.com" target="_blank" rel="noopener">Springinstrumentos</a>, construido por Diego Rodriguez Pinedo con trabajo y pasión para el proyecto final del curso de Javascript de Coderhouse, Comisión 30360 · © 2022 
 
-![Go Vegan](https://img.shields.io/badge/GO-Vega
+![Go Vegan](https://img.shields.io/badge/GO-Vegan)
