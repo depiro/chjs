@@ -8,7 +8,8 @@
 
 Este proyecto fue construido con JS, HTML, CSS, Bootstrap y Toastify.
 
-[https://drive.google.com/file/d/1eRpz_Nww-Tx_Js_XnsrlCPRLyK-Bd67j/view?usp=sharing]
+
+![fp](./img/coderfpfinal.jpg)
 
 Proyecto inspirado en <a href="http://springinstrumentos.com" target="_blank" rel="noopener">Springinstrumentos</a>, construido por Diego Rodriguez Pinedo con trabajo y pasión para el proyecto final del curso de Javascript de Coderhouse, Comisión 30360 · © 2022 
 
